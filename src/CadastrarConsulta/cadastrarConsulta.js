@@ -12,13 +12,15 @@ function App() {
   const [listaDeConsultasM, setListaDeConsultasM] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:3003/cadastrarConsulta").then((response) => {
-      setListaDeConsultasM(response.data);
-    });
+    Axios.get("http://medonback.herokuapp.com/cadastrarConsulta/").then(
+      (response) => {
+        setListaDeConsultasM(response.data);
+      }
+    );
   }, []);
 
   const cadastrarConsulta = () => {
-    Axios.post("http://localhost:3003/cadastrarConsulta", {
+    Axios.post("http://medonback.herokuapp.com/cadastrarConsulta/", {
       tipo: tipo,
       endereco: endereco,
       data: data,
@@ -116,7 +118,7 @@ function App() {
                       className="btn btn-clin"
                       value=""
                     >
-                      <Link to="/consultasMarcadas">Cadastrar</Link>
+                      Cadastrar
                     </button>
                   </div>
                 </div>

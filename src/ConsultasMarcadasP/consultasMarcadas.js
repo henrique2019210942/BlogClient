@@ -8,13 +8,15 @@ function App() {
   const [listaDeConsultasM, setListaDeConsultasM] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:3003/cadastrarConsulta").then((response) => {
-      setListaDeConsultasM(response.data);
-    });
+    Axios.get("http://medonback.herokuapp.com/cadastrarConsulta").then(
+      (response) => {
+        setListaDeConsultasM(response.data);
+      }
+    );
   }, []);
 
   const deletarConsulta = (data) => {
-    Axios.delete(`http://localhost:3003/cadastrarConsulta${data}`);
+    Axios.delete(`http://medonback.herokuapp.com/cadastrarConsulta/${data}`);
   };
 
   return (
@@ -69,7 +71,7 @@ function App() {
                             deletarConsulta(val.data);
                           }}
                         >
-                          <Link to="/consultasMarcadas/">Delete</Link>
+                          Delete
                         </button>
                       </div>
                     </div>
